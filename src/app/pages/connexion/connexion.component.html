@@ -1,1 +1,31 @@
-<p>connexion works!</p>
+<div class="container text-center form-signin">
+  <form [formGroup]="connexionForm" (ngSubmit)="connexionToAccount(connexionForm.value)" class="formconnexion col-12">
+    <img class="mb-6 icone" src="../../../assets/icons/des-sports.png" width="50" height="50" alt="" width="72"
+      height="57">
+    <h1 class="h3 mb-3 fw-normal">Se Connecter</h1>
+    <div class="form-floating ">
+      <input type="email" class="form-control" id="floatingInput" placeholder="name@email.com" formControlName="email">
+      <label for="floatingInput">Email address</label>
+    </div>
+    <div class=" input-group form-floating">
+      <input [type]="showPassWordFlag ? 'text' : 'password' " class="form-control" id="floatingPassword"
+        placeholder="Password" formControlName="password">
+      <label for="floatingPassword">Password</label>
+      <span (click)="showPassWord()" class="input-group-text" id="basic-addon1"><svg xmlns="http://www.w3.org/2000/svg"
+          width="16" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
+          <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
+          <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z" />
+        </svg></span>
+    </div>
+
+    <div class="checkbox mb-3">
+      <label>
+        <input type="checkbox" value="remember-me"> Remember me
+      </label> <br>
+      <a routerLink="/nouveauMotDePasse" class="text-info">J'ai oublié mon mot de passe...</a>
+    </div>
+    <button class="w-100 btn btn-lg btn-primary mb-1" [disabled]="connexionForm.invalid" type="submit">Sign in</button>
+    <a routerLink="/newaccount" class="w-100 btn btn-lg btn-success" type="button"> Créer un compte</a>
+    <p class="mt-5 mb-3 text-muted">© 2017–2022</p>
+  </form>
+</div>

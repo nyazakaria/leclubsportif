@@ -1,3 +1,26 @@
-.containerForm {
-  margin-left: 400px;
+.newaccountForm,
+.field {
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+
+.form-floating {
+  margin-bottom: 2px !important;
+  margin-top: 2px;
+}
+
+.input-group {
+  width: 50% !important;
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+}
+
+.input-group {
+  width: 50% !important;
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+}
+
+.cdg {
+  margin-left: 1px;
 }

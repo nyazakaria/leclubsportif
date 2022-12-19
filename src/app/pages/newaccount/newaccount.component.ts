@@ -1,5 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormBuilder,
+  FormGroup,
+  ValidationErrors,
+  ValidatorFn,
+  Validators,
+} from '@angular/forms';
+import { AccountService } from '../../services/account.service';
 @Component({
   selector: 'app-newaccount',
   templateUrl: './newaccount.component.html',
@@ -7,10 +15,19 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class NewaccountComponent implements OnInit {
   createAccountForm!: FormGroup;
-  constructor(private fb: FormBuilder) {}
+  showPassWordFlag = false;
+
+  constructor(
+    private fb: FormBuilder,
+    private accountService: AccountService
+  ) {}
 
   ngOnInit(): void {
     this.newAccountForm();
+  }
+
+  showPassWord() {
+    this.showPassWordFlag = !this.showPassWordFlag;
   }
 
   newAccountForm() {
@@ -27,11 +44,7 @@ export class NewaccountComponent implements OnInit {
         Validators.minLength(7),
         Validators.maxLength(15),
       ],
-      passwordConfirm: [
-        '',
-        Validators.required,
-        Validators.pattern(this.createAccountForm.controls['passWord'].value),
-      ],
+      passwordConfirm: ['', Validators.required],
       name: ['', Validators.required],
       lastname: ['', Validators.required],
       anneeNaissance: ['', Validators.required],
@@ -39,8 +52,19 @@ export class NewaccountComponent implements OnInit {
       adressecmpl: ['', Validators.required],
       ville: ['', Validators.required],
       codePostal: ['', Validators.required],
+      sexe: ['', Validators.required],
+      abonnements: ['', Validators.required],
+      club: ['', Validators.required],
+      telephone: ['', Validators.required],
+      entrainement: [false],
+      newsletter: [false],
+      conditionsgenerales: [false, Validators.requiredTrue],
     });
   }
 
-  createNewAccount() {}
+  createNewAccount(form: any) {
+    this.accountService.createUserAccount(form);
+  }
+
+  // https://stackoverflow.com/questions/51605737/confirm-password-validation-in-angular-6
 }

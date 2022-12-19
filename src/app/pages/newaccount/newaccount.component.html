@@ -1,52 +1,121 @@
-<div class="container">
-  <form [formGroup]="createAccountForm" (ngSubmit)="createNewAccount()" class="newaccountForm">
-    <div class="containerForm">
-      <img class="mb-6 mx-auto" src="../../../assets/icons/des-sports.png" width="50" height="50" alt="" width="72"
-        height="57">
-      <h1 class="h3 mb-3 center fw-normal">S'inscrire</h1>
-      <div class="col-4">
+<div class="container text-center">
+  <form [formGroup]="createAccountForm" (ngSubmit)="createNewAccount(createAccountForm.value)"
+    class="newaccountForm align-self-center">
+
+    <img class="mb-6 icone" src="../../../assets/icons/des-sports.png" width="50" height="50" alt="" width="72"
+      height="57">
+    <h1 class="h3 mb-3 center fw-normal">S'inscrire</h1> <br>
+    <div class="containerForm align-self-center d-flex flex-row flex-wrap justify-content-around">
+      <div class="col-2 field">
+        <select class="form-select form-select-sm mb-3" aria-label=".form-select-lg " formControlName="sexe">
+          <option selected>Sexe</option>
+          <option value="femme">Femme</option>
+          <option value="homme">Homme</option>
+          <option value="nogenre">pas de genre</option>
+        </select>
+      </div>
+      <div class="col-6 field">
+        <select class="form-select form-select-sm mb-3" aria-label=".form-select-lg " formControlName="abonnement">
+          <option selected>Abonnement</option>
+          <option value="basic">Basic</option>
+          <option value="premium">Premium</option>
+          <option value="vip">VIP</option>
+        </select>
+      </div>
+      <div class="col-6 field">
+        <select class="form-select form-select-sm mb-3" aria-label=".form-select-lg " formControlName="club">
+          <option selected>Club</option>
+          <option value="toulouse">Toulouse</option>
+          <option value="paris">Paris</option>
+          <option value="bordeaux">Bordeaux</option>
+        </select>
+      </div>
+      <div class="col-6 form-floating  field">
         <label for="fistname" class="form-label">Nom</label>
         <input type="text" class="form-control" id="firstname" placeholder="Nom" formControlName="name">
       </div>
-      <div class="col-4">
+      <div class="col-6 form-floating  field">
         <label for="lastname" class="form-label">Prénom</label>
         <input type="text" class="form-control" id="lastname" placeholder="Prenom" formControlName="lastname">
       </div>
-      <div class="col-4">
+      <div class="col-6  field">
         <label for="naissance" class="form-label">Date de Naissance</label>
-        <input type="text" class="form-control" id="naissance" type="date" formControlName="anneeNaissance">
+        <input class="form-control" id="naissance" type="date" placeholder="Date de Naissance"
+          formControlName="anneeNaissance">
       </div>
-      <div class="col-md-4">
+      <div class="col-md-6 form-floating  field">
         <label for="email" class="form-label">Email</label>
         <input type="email" class="form-control" id="email" formControlName="email">
       </div>
-      <div class="col-md-4">
-        <label for="password" class="form-label">Password</label>
-        <input type="password" class="form-control" id="password" formControlName="passWord">
+      <div class="col-md-4 input-group form-floating field">
+        <label for="password" class="form-label">Mot de passe</label>
+        <input [type]="showPassWordFlag ? 'text' : 'password' " class="form-control" id="password"
+          formControlName="passWord">
+        <span (click)="showPassWord()" class="input-group-text" id="basic-addon1"><svg
+            xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill"
+            viewBox="0 0 16 16">
+            <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
+            <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z" />
+          </svg></span>
       </div>
-      <div class="col-md-4">
-        <label for="confirmPassword" class="form-label">Password</label>
-        <input type="password" class="form-control" id="confirmPassword" formControlName="passwordConfirm">
+      <div class="col-md-6 input-group form-floating field">
+        <label for="confirmPassword" class="form-label">Confirmer le mot de passe</label>
+        <input [type]="showPassWordFlag ? 'text' : 'password' " class="form-control" id="confirmPassword"
+          formControlName="passwordConfirm">
+        <span (click)="showPassWord()" class="input-group-text" id="basic-addon1"><svg
+            xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill"
+            viewBox="0 0 16 16">
+            <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
+            <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z" />
+          </svg></span>
       </div>
-      <div class="col-4">
+      <div class="col-6 form-floating  field">
+        <label for="telephone" class="form-label">Adresse</label>
+        <input type="tel" class="form-control" id="telephone" placeholder="123456" formControlName="telephone">
+      </div>
+      <div class="col-6 form-floating  field">
         <label for="adresse" class="form-label">Adresse</label>
         <input type="text" class="form-control" id="adresse" placeholder="1234 Main St" formControlName="adresse">
       </div>
-      <div class="col-4">
+      <div class="col-6 form-floating  field">
         <label for="adressecmpl" class="form-label">Adresse 2</label>
         <input type="text" class="form-control" id="adressecmpl" placeholder="Apartment, studio, or floor"
           formControlName="adressecmpl">
       </div>
-      <div class="col-md-4">
+      <div class="col-md-6 form-floating  field">
         <label for="ville" class="form-label">Ville</label>
         <input type="text" class="form-control" id="ville" formControlName="ville">
       </div>
-      <div class="col-md-2">
+      <div class="col-md-6 form-floating  field">
         <label for="codePostal" class="form-label">Code postal</label>
         <input type="text" class="form-control" id="codePostal" formControlName="codePostal">
       </div>
-      <button class="w-20 btn mt-2 btn-lg btn-warning" type="submit">S'inscrire</button>
-      <p class="mt-5 mb-3 text-muted">© 2017–2022</p>
+      <div class="col-md-6 form-floating  field">
+        <label for="pays" class="form-label">Pays</label>
+        <input type="text" class="form-control" id="pays" formControlName="pays">
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="entrainement" formControlName="entrainement">
+        <label class="form-check-label" for="entrainement">
+          Programme D'entrainement
+        </label>
+      </div>
+      <div class=" form-check">
+        <input class="form-check-input" type="checkbox" value="" id="newsletter" formControlName="newsletter">
+        <label class="form-check-label" for="newsletter">
+          Newsletter
+        </label>
+      </div>
+      <div class=" form-check cdg">
+        <input class="form-check-input" type="checkbox" value="" id="conditionsgenerales"
+          formControlName="conditionsgenerales">
+        <label class="form-check-label" for="conditionsgenerales">
+          j'accepte les conditions generales <br> du groupe Le club Sportif
+        </label>
+      </div>
     </div>
+    <button class="w-20 btn mt-2 btn-lg btn-warning" type="submit"
+      [disabled]="createAccountForm.invalid">S'inscrire</button>
   </form>
+  <p class="mt-5 mb-3 text-muted">© 2017–2022</p>
 </div>

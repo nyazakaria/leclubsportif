@@ -1,9 +1,16 @@
 import { Injectable } from '@angular/core';
-
+import { HttpClient } from '@angular/common/http';
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AccountService {
+  constructor(private http: HttpClient) {}
 
-  constructor() { }
+  createUserAccount(newUser: any) {
+    console.log(newUser);
+  }
+
+  connexionToMyAccount(user: any) {
+    console.log(user);
+  }
 }
