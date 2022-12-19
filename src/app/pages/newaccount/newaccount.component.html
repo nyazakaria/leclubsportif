@@ -1,1 +1,52 @@
-<p>newaccount works!</p>
+<div class="container">
+  <form [formGroup]="createAccountForm" (ngSubmit)="createNewAccount()" class="newaccountForm">
+    <div class="containerForm">
+      <img class="mb-6 mx-auto" src="../../../assets/icons/des-sports.png" width="50" height="50" alt="" width="72"
+        height="57">
+      <h1 class="h3 mb-3 center fw-normal">S'inscrire</h1>
+      <div class="col-4">
+        <label for="fistname" class="form-label">Nom</label>
+        <input type="text" class="form-control" id="firstname" placeholder="Nom" formControlName="name">
+      </div>
+      <div class="col-4">
+        <label for="lastname" class="form-label">Prénom</label>
+        <input type="text" class="form-control" id="lastname" placeholder="Prenom" formControlName="lastname">
+      </div>
+      <div class="col-4">
+        <label for="naissance" class="form-label">Date de Naissance</label>
+        <input type="text" class="form-control" id="naissance" type="date" formControlName="anneeNaissance">
+      </div>
+      <div class="col-md-4">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" formControlName="email">
+      </div>
+      <div class="col-md-4">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control" id="password" formControlName="passWord">
+      </div>
+      <div class="col-md-4">
+        <label for="confirmPassword" class="form-label">Password</label>
+        <input type="password" class="form-control" id="confirmPassword" formControlName="passwordConfirm">
+      </div>
+      <div class="col-4">
+        <label for="adresse" class="form-label">Adresse</label>
+        <input type="text" class="form-control" id="adresse" placeholder="1234 Main St" formControlName="adresse">
+      </div>
+      <div class="col-4">
+        <label for="adressecmpl" class="form-label">Adresse 2</label>
+        <input type="text" class="form-control" id="adressecmpl" placeholder="Apartment, studio, or floor"
+          formControlName="adressecmpl">
+      </div>
+      <div class="col-md-4">
+        <label for="ville" class="form-label">Ville</label>
+        <input type="text" class="form-control" id="ville" formControlName="ville">
+      </div>
+      <div class="col-md-2">
+        <label for="codePostal" class="form-label">Code postal</label>
+        <input type="text" class="form-control" id="codePostal" formControlName="codePostal">
+      </div>
+      <button class="w-20 btn mt-2 btn-lg btn-warning" type="submit">S'inscrire</button>
+      <p class="mt-5 mb-3 text-muted">© 2017–2022</p>
+    </div>
+  </form>
+</div>
