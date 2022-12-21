@@ -14,18 +14,21 @@ import { RecrutementComponent } from './pages/recrutement/recrutement.component'
 import { PresentationComponent } from './pages/presentation/presentation.component';
 
 const routes: Routes = [
+  // partie visible par tout le monde
   { path: 'home', component: HomeComponent },
   { path: 'connexion', component: ConnexionComponent },
   { path: 'newaccount', component: NewaccountComponent },
-  { path: 'abonnements', component: AbonnementsComponent },
+  { path: 'tarifs', component: AbonnementsComponent },
   { path: 'salles', component: MapsallesComponent },
   { path: 'activites', component: ActivitesComponent },
   { path: 'blog', component: BlogComponent },
-  { path: 'futurcoach', component: NewcoachComponent },
   { path: 'contacts', component: ContactsComponent },
   { path: 'futurclub', component: NewclubComponent },
   { path: 'recrutement', component: RecrutementComponent },
   { path: 'presentation', component: PresentationComponent },
+  // visible par les profils inscrits
+  { path: 'espacecoach', component: NewcoachComponent },
+
   { path: '**', pathMatch: 'full', redirectTo: 'home' },
 ];
 

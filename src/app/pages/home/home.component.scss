@@ -1,0 +1,89 @@
+#fistSection {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.childPageHeader,
+.formuleBacis,
+.formuleVip {
+  position: relative;
+}
+
+h1,
+.childPageHeader span {
+  position: absolute;
+  color: #fff;
+  z-index: 1;
+  font-size: 35px;
+}
+
+.childPageHeader span {
+  bottom: 0;
+  left: 0;
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+  top: 50px;
+  left: 70px;
+}
+
+.childFormuleBacis,
+.childFormuleVip {
+  position: absolute;
+  color: #ffc107;
+  left: 20px;
+}
+.childFormuleBacis {
+  top: 50px;
+}
+
+.childFormuleVip {
+  bottom: 50px;
+}
+img {
+  filter: blur(1px);
+}
+.formuleVip {
+  margin-top: 10px;
+}
+
+.presentation ul {
+  background-color: rgb(0, 0, 0);
+  display: flex;
+  width: 960px;
+  justify-content: space-between;
+  height: 160px;
+  margin: 0 auto;
+}
+
+.presentation ul {
+  width: 100%;
+}
+.presentation ul li {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  width: 25%;
+  justify-content: flex-start;
+  color: #fff;
+}
+
+section {
+  width: 960px;
+}
+
+.carousel-inner {
+  & img {
+    width: 900px;
+    height: 500px;
+  }
+}
+
+.container {
+  margin-bottom: 50px;
+}
