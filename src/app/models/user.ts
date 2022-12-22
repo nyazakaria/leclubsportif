@@ -21,3 +21,8 @@ interface adresse {
   pays: string;
   complementary: string;
 }
+
+export interface userConnexion {
+  email: string;
+  token?: string;
+}

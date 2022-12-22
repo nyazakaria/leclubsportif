@@ -31,6 +31,7 @@ export class ConnexionComponent implements OnInit {
   }
 
   connexionToAccount(userForm: any) {
-    this.accountService.connexionToMyAccount(userForm);
+    console.log(userForm);
+    this.accountService.login(userForm.email, userForm.password).subscribe();
   }
 }

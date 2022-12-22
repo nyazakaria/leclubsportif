@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { AccountService } from 'src/app/services/account.service';
-
+import { interval } from 'rxjs';
 @Component({
   selector: 'app-sidemenu',
   templateUrl: './sidemenu.component.html',
@@ -8,14 +9,17 @@ import { AccountService } from 'src/app/services/account.service';
 })
 export class SidemenuComponent implements OnInit {
   menuRole: string[] = [];
+  sub: any;
   constructor(private Saccount: AccountService) {}
 
   ngOnInit(): void {
-    console.log(this.menuRole);
+    console.log(this.menuRole, 'menu');
   }
 
+  /* 
   sideMenu() {
-    const userRole = this.Saccount.getUserRole();
+    
+    console.log(userRole);
     switch (userRole) {
       case 'admin':
         this.menuRole = [
@@ -40,5 +44,5 @@ export class SidemenuComponent implements OnInit {
         null;
         break;
     }
-  }
+  } */
 }

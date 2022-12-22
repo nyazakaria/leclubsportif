@@ -1,1 +1,35 @@
-<p>contacts works!</p>
+<div class="container">
+  <h2 class="mb-5 text-center">Contactez Nos Equipes</h2>
+  <div class="formulaire_contact ">
+    <form [formGroup]="contactForm" (ngSubmit)="sendMessage(contactForm.value)">
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="nom" placeholder="Nom" formControlName="nom">
+        <label for="nom">Nom</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="prenom" placeholder="Prenom" formControlName="prenom">
+        <label for="prenom">Prenom</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="email" class="form-control" id="email" placeholder="email@email.com" formControlName="email">
+        <label for="email">Email</label>
+      </div>
+      <div class="form-floating">
+        <textarea class="form-control" placeholder="Ecrivez votre message" id="message" formControlName="message"
+          style="height: 100px"></textarea>
+        <label for="message">Comments</label>
+      </div>
+      <div class="row mt-3">
+        <div class="col-sm-10 ">
+          <div class="form-check col-6">
+            <input class="form-check-input" type="checkbox" id="newsletter" formControlName="newsletter">
+            <label class="form-check-label" for="newsletter">
+              s'inscrire à notre newsletter
+            </label>
+          </div>
+        </div>
+      </div>
+      <button type=" submit" class="btn btn-primary" [disabled]="contactForm.invalid">Envoyer</button>
+    </form>
+  </div>
+</div>

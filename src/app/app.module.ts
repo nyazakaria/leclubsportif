@@ -19,6 +19,12 @@ import { ContactsComponent } from './pages/contacts/contacts.component';
 import { NewclubComponent } from './pages/newclub/newclub.component';
 import { RecrutementComponent } from './pages/recrutement/recrutement.component';
 import { PresentationComponent } from './pages/presentation/presentation.component';
+import { MessagerieComponent } from './espace/messagerie/messagerie.component';
+import { AbonnementComponent } from './espace/abonnement/abonnement.component';
+import { ReservationComponent } from './espace/reservation/reservation.component';
+import { InfopersoComponent } from './espace/infoperso/infoperso.component';
+import { AgendaComponent } from './coach/agenda/agenda.component';
+import { GestionclientsComponent } from './admin/gestionclients/gestionclients.component';
 
 @NgModule({
   declarations: [
@@ -38,8 +44,19 @@ import { PresentationComponent } from './pages/presentation/presentation.compone
     NewclubComponent,
     RecrutementComponent,
     PresentationComponent,
+    MessagerieComponent,
+    AbonnementComponent,
+    ReservationComponent,
+    InfopersoComponent,
+    AgendaComponent,
+    GestionclientsComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
