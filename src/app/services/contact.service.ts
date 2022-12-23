@@ -9,6 +9,8 @@ export class ContactService {
   constructor(private http: HttpClient) {}
 
   postMessage(form: Contact) {
-    this.http.post(`${Environment.url}/contact`, form);
+    this.http.post(`${Environment.url}/contact`, form).subscribe((res: any) => {
+      console.log(res);
+    });
   }
 }

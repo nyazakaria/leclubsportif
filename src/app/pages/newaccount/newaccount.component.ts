@@ -63,7 +63,20 @@ export class NewaccountComponent implements OnInit {
   }
 
   createNewAccount(form: any) {
-    this.accountService.createUserAccount(form);
+    const registerForm = {
+      customerId: 1,
+      customerName: form.name,
+      customerLastname: form.lastname,
+      address: form.adresse,
+      cdp: form.codePostal,
+      city: form.ville,
+      state: 'France',
+      email: form.email,
+      phone: form.telephone,
+      role: 'user',
+    };
+    console.log(registerForm, 'fomr');
+    this.accountService.createUserAccount(registerForm);
   }
 
   // https://stackoverflow.com/questions/51605737/confirm-password-validation-in-angular-6

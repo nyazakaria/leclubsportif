@@ -1,1 +1,23 @@
-<p>gestionclients works!</p>
+<div class="container">
+  <h2 (click)="getUsers()">Gestion Clients</h2>
+  <div class="listA d-flex flex-row justify-content-between flex-wrap">
+    <div class="list " *ngFor="let user of userList">
+      <div class="card mb-5" style="width: 18rem;">
+        <img src="../../../assets/images/femmesport.jpeg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{user.customerName}} - {{user.customerLastname}}</h5>
+          <p class="card-text">{{user.address}} - {{user.cdp}} - {{user.city}}-{{user.state}}</p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">email : {{user.email}} </li>
+          <li class="list-group-item">tel :{{user.phone}}</li>
+          <li class="list-group-item">A third item</li>
+        </ul>
+        <div class="card-body">
+          <a type="button" class="btn btn-info me-2" href="#">Modifier</a>
+          <a href="#" (click)="deleteUser(user.customerId)" type="button" class="btn btn-danger">Supprimer</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

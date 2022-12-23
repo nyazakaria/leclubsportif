@@ -2,25 +2,37 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AccountService } from 'src/app/services/account.service';
 import { interval } from 'rxjs';
+import { UsersService } from 'src/app/services/users.service';
 @Component({
   selector: 'app-sidemenu',
   templateUrl: './sidemenu.component.html',
   styleUrls: ['./sidemenu.component.scss'],
 })
 export class SidemenuComponent implements OnInit {
-  menuRole: string[] = [];
+  user: any | undefined;
+  userRole: any;
+  menuRole: any;
   sub: any;
-  constructor(private Saccount: AccountService) {}
+  constructor(private Saccount: UsersService) {}
 
   ngOnInit(): void {
-    console.log(this.menuRole, 'menu');
+    console.log(this.user, 'menu');
   }
 
-  /* 
-  sideMenu() {
-    
-    console.log(userRole);
-    switch (userRole) {
+  getAllUser(role: any) {
+    this.user = this.Saccount.getAllUser();
+    this.user.map((user: any) => {
+      if (role === user.role) {
+        this.sideMenu(role);
+        this.userRole = role;
+      }
+    });
+    console.log(this.Saccount.getAllUser());
+  }
+
+  sideMenu(role: any) {
+    console.log(role);
+    switch (role) {
       case 'admin':
         this.menuRole = [
           'Factures',
@@ -32,7 +44,7 @@ export class SidemenuComponent implements OnInit {
       case 'coach':
         this.menuRole = ['agenda', 'reservations', 'messagerie'];
         break;
-      case 'adherent':
+      case 'user':
         this.menuRole = [
           'messagerie',
           'abonnement',
@@ -44,5 +56,5 @@ export class SidemenuComponent implements OnInit {
         null;
         break;
     }
-  } */
+  }
 }

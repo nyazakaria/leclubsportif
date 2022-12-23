@@ -3,7 +3,7 @@
   <div class="formulaire_contact ">
     <form [formGroup]="contactForm" (ngSubmit)="sendMessage(contactForm.value)">
       <div class="form-floating mb-3">
-        <input type="text" class="form-control" id="nom" placeholder="Nom" formControlName="nom">
+        <input type="text" class="form-control" id="nom" placeholder="Nom" formControlName="name">
         <label for="nom">Nom</label>
       </div>
       <div class="form-floating mb-3">

@@ -22,9 +22,10 @@ import { AbonnementComponent } from './espace/abonnement/abonnement.component';
 import { InfopersoComponent } from './espace/infoperso/infoperso.component';
 import { MessagerieComponent } from './espace/messagerie/messagerie.component';
 import { ReservationComponent } from './espace/reservation/reservation.component';
-
+import { GestionclientsComponent } from './admin/gestionclients/gestionclients.component';
 const routes: Routes = [
   // partie visible par tout le monde
+  { path: 'gestionUser', component: GestionclientsComponent },
   { path: 'home', component: HomeComponent },
   { path: 'connexion', component: ConnexionComponent },
   { path: 'newaccount', component: NewaccountComponent },
@@ -37,6 +38,7 @@ const routes: Routes = [
   { path: 'recrutement', component: RecrutementComponent },
   { path: 'presentation', component: PresentationComponent },
   // visible par les profils inscrits
+
   {
     path: 'espacecoach',
     canActivate: [AuthguardGuard],

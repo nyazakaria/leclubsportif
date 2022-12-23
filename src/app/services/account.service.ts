@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, map, Observable } from 'rxjs';
 import { User, userConnexion } from '../models/user';
 import { Router } from '@angular/router';
+import { Environment } from 'src/environments/environment.prod';
 @Injectable({
   providedIn: 'root',
 })
@@ -24,7 +25,11 @@ export class AccountService {
   }
 
   createUserAccount(form: any) {
-    console.log(form);
+    this.http
+      .post(`${Environment.url}/customer/save`, form)
+      .subscribe((res: any) => {
+        console.log(form, 'form');
+      });
   }
 
   login(email: string, password: string) {

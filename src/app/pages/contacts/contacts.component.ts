@@ -23,8 +23,9 @@ export class ContactsComponent implements OnInit {
 
   contactFormBuild() {
     this.contactForm = this.fb.group({
-      nom: ['', Validators.required],
+      name: ['', Validators.required],
       prenom: ['', Validators.required],
+      email: ['', Validators.required],
       message: ['', Validators.required],
       newsletter: false,
     });
@@ -32,6 +33,6 @@ export class ContactsComponent implements OnInit {
 
   sendMessage(form: Contact) {
     this.Scontact.postMessage(form);
-    this.Router.navigate(['./home']);
+    // this.Router.navigate(['./home']);
   }
 }
