@@ -9,7 +9,7 @@ import java.util.List;
 public interface ICustomerService {
     String addCustomer(CustomerSaveDTO customerSaveDTO);
 
-    List<CustomerDTO> getAllCustomer();
+    List<CustomerDTO> getAllCustomer() ;
 
     String updateCustomer(CustomerDTO customer);
 
